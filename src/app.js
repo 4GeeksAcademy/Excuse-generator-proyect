@@ -11,14 +11,15 @@ window.onload = function() {
     "during my lunch",
     "while I was praying"
   ];
+  let extensions = [".com", ".es"];
 
   function genererExcuse() {
     let whoAleatory = who[Math.floor(Math.random() * who.length)];
     let actionAleatory = action[Math.floor(Math.random() * action.length)];
     let whatAleatory = what[Math.floor(Math.random() * what.length)];
     let whenAleatory = when[Math.floor(Math.random() * when.length)];
-
-    // Crear la excusa aleatoria
+    let extensionAleatory =
+      extensions[Math.floor(Math.random() * extensions.length)];
 
     let excuse =
       whoAleatory +
@@ -30,13 +31,12 @@ window.onload = function() {
       whenAleatory +
       ".";
 
-    // Establecer la excusa en el elemento HTML con ID #excuse
-
-    document.getElementById("excuse").innerHTML = excuse;
-    const mainParagraph = document.getElementById("excuse");
+    document.getElementById("excuse").innerHTML =
+      "<p>" + excuse + extensionAleatory + "</p>";
   }
 
   genererExcuse();
+
   let button = document.getElementById("genererButton");
   button.addEventListener("click", genererExcuse);
 };
